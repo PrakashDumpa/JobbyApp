@@ -1,0 +1,11 @@
+.profile_container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  min-height: 170px;
+}
+.user_container {
+  border-radius: 12px;
+  min-height: 170px;
+}

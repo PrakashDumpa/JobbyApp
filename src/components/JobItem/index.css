@@ -1,0 +1,28 @@
+.jobItem {
+  background-color: #202020;
+  border-radius: 10px;
+}
+.companyLogo {
+  width: 100px;
+  height: 75px;
+}
+.star {
+  color: yellow;
+}
+hr {
+  background-color: #64748b;
+  height: 1px;
+}
+.description {
+  line-height: 2rem;
+  font-weight: solid;
+  font-family: Roboto;
+}
+
+.nav-items {
+  text-decoration: none;
+  color: white;
+}
+.nav-items:hover {
+  color: white;
+}
