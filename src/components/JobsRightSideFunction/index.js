@@ -30,15 +30,15 @@ class JobsRightSideFunction extends Component {
     this.setState({
       jobStatus: jobsComponentStatus.inProgress,
     })
-    // const {searchInput, callingEmploymentTypeList} = this.state
+    const {searchInput} = this.state
 
     // const employment = callingEmploymentList.join(',')
     // console.log('employment', employment)
 
     // https://apis.ccbp.in/jobs?employment_type=FULLTIME,PARTTIME&minimum_package=1000000&search=
 
-    // const url = `https://apis.ccbp.in/jobs?employment_type=${employment}&search=${searchInput}`
-    const url = 'https://apis.ccbp.in/jobs'
+    const url = `https://apis.ccbp.in/jobs?search=${searchInput}`
+    // const url = 'https://apis.ccbp.in/jobs'
     console.log(url)
     const jwtToken = Cookies.get('jwt_token')
     const options = {
@@ -95,10 +95,11 @@ class JobsRightSideFunction extends Component {
           <div className="input-group-prepend search_box">
             <button
               type="button"
-              data-testid="searchButton"
+              onClick={this.searchButton}
+              testid="searchButton"
               className="input-group-text border"
             >
-              <BsSearch className="search-icon " onClick={this.searchButton} />
+              <BsSearch className="search-icon " />
             </button>
           </div>
         </div>
@@ -108,6 +109,21 @@ class JobsRightSideFunction extends Component {
 
   jobItemFunction = () => {
     const {jobItemsList} = this.state
+    if (jobItemsList.length === 0) {
+      return (
+        <div className="text-light d-flex flex-column justify-content-center align-items-center vh-100">
+          <div className="text-center">
+            <img
+              className="w-75"
+              src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+              alt="no jobs"
+            />
+          </div>
+          <h1 className="mt-3">No Jobs Found</h1>
+          <p>We could not find any jobs. Try other filters</p>
+        </div>
+      )
+    }
 
     return (
       <ul className="list-unstyled">
@@ -143,7 +159,7 @@ class JobsRightSideFunction extends Component {
         alt="failure view"
       />
       <h1 className="mt-2">Oops! Something Went Wrong</h1>
-      <p>We cannot seen to find the page you are looking for.</p>
+      <p>We cannot seem to find the page you are looking for</p>
       <button
         className="btn btn-primary"
         type="button"

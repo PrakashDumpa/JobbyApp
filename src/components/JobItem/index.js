@@ -23,7 +23,7 @@ const JobItem = props => {
       <Link to={`jobs/${id}`} className="nav-items">
         <div className="d-flex">
           <div className="companyLogo">
-            <img className="w-75" src={companyLogoUrl} alt="" />
+            <img className="w-75" src={companyLogoUrl} alt="company logo" />
           </div>
           <div className="d-flex flex-column justify-content-between">
             <h1 className="h4 m-0">{title}</h1>

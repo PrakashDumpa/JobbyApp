@@ -90,9 +90,9 @@ class Login extends Component {
             Login
           </button>
           {showErrorMsg && (
-            <small id="emailHelp" className="text-danger form-text ">
+            <p id="emailHelp" className="text-danger form-text ">
               {errorMsg}
-            </small>
+            </p>
           )}
         </form>
       </div>

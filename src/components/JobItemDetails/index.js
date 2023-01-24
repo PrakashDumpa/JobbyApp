@@ -120,8 +120,8 @@ class JobItemDetails extends Component {
       <div className="d-flex align-items-center">
         {lifeAtCompany.map(each => (
           <div key={uuidv4()} className="d-flex align-items-center">
-            <p className="order-1 col-9">{each.description}</p>
-            <img src={each.imageUrl} alt="" className="order-2 col-3" />
+            <p className="col-9">{each.description}</p>
+            <img src={each.imageUrl} alt="life at company" className="col-3" />
           </div>
         ))}
       </div>
@@ -139,7 +139,11 @@ class JobItemDetails extends Component {
               <div className="text-light jobItem  mb-3 mt-3 p-4">
                 <div className="d-flex">
                   <div className="companyLogo">
-                    <img className="w-75" src={each.companyLogoUrl} alt="" />
+                    <img
+                      className="w-75"
+                      src={each.companyLogoUrl}
+                      alt="similar job company logo"
+                    />
                   </div>
                   <div className="d-flex flex-column justify-content-between">
                     <h1 className="h4 m-0">{each.title}</h1>
@@ -199,7 +203,11 @@ class JobItemDetails extends Component {
             <div className="text-light jobItem mb-3 mt-3 p-4">
               <div className="d-flex">
                 <div className="companyLogo">
-                  <img className="w-75" src={companyLogoUrl} alt="" />
+                  <img
+                    className="w-75"
+                    src={companyLogoUrl}
+                    alt="job details company logo"
+                  />
                 </div>
                 <div className="d-flex flex-column justify-content-between">
                   <h1 className="h4 m-0">{title}</h1>
@@ -283,7 +291,7 @@ class JobItemDetails extends Component {
             alt="failure view"
           />
           <h1 className="mt-2">Oops! Something Went Wrong</h1>
-          <p>We cannot seen to find the page you are looking for.</p>
+          <p>We cannot seem to find the page you are looking for</p>
           <button
             className="btn btn-primary"
             type="button"

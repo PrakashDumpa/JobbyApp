@@ -50,7 +50,6 @@ class JobsLeftSideSection extends Component {
       lst.push(event.target.id)
       this.setState({employmentType: [...lst]})
     } else {
-      //   lst.remove(event.target.value)
       lst = lst.filter(each => each !== event.target.id)
       this.setState({employmentType: [...lst]})
     }
