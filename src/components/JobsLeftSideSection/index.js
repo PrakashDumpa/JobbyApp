@@ -42,23 +42,18 @@ const salaryRangesList = [
 
 let lst = []
 class JobsLeftSideSection extends Component {
-  state = {employmentType: [], minimumPackage: ''}
-
   onChangeEmploymentType = event => {
-    const {callingEmploymentFilter} = this.props
+    const {addEmploymentType} = this.props
     if (event.target.checked) {
       lst.push(event.target.id)
-      this.setState({employmentType: [...lst]})
     } else {
       lst = lst.filter(each => each !== event.target.id)
-      this.setState({employmentType: [...lst]})
     }
-    callingEmploymentFilter(lst)
+    addEmploymentType(lst)
   }
 
   employmentFilterFunction = () => {
-    const {employmentType} = this.state
-    // console.log(employmentType)
+    const {employmentTypeList} = this.props
     return (
       <div>
         <h1 className="h5 text-light pb-3">Type of Employment</h1>
@@ -70,11 +65,11 @@ class JobsLeftSideSection extends Component {
             >
               <input
                 type="checkbox"
-                // checked
                 id={each.employmentTypeId}
                 className="pr-2 form-check-input check"
                 name="employment"
                 value={each.label}
+                checked={employmentTypeList.includes(each.employmentTypeId)}
                 onChange={this.onChangeEmploymentType}
               />
               <label
@@ -90,8 +85,13 @@ class JobsLeftSideSection extends Component {
     )
   }
 
+  onChangeSalaryRange = event => {
+    const {changeSalaryRange} = this.props
+    changeSalaryRange(event.target.id)
+  }
+
   salaryRangeFilterFunction = () => {
-    const {minimumPackage} = this.state
+    const {salaryRange} = this.props
     return (
       <div>
         <h1 className="h5 text-light pb-3">Salary Range</h1>
@@ -104,13 +104,15 @@ class JobsLeftSideSection extends Component {
               <input
                 type="radio"
                 id={each.salaryRangeId}
-                className="mr-2 form-check-input"
+                className="mr-2 form-check-input check"
                 name="salary"
                 value={each.label}
+                checked={salaryRange === each.salaryRangeId}
+                onChange={this.onChangeSalaryRange}
               />
               <label
                 htmlFor={each.salaryRangeId}
-                className="text-light form-check-label"
+                className="text-light form-check-label check"
               >
                 {each.label}
               </label>
@@ -121,9 +123,12 @@ class JobsLeftSideSection extends Component {
     )
   }
 
+  onClearAllFilters = () => {
+    const {clearAllFilters} = this.props
+    clearAllFilters()
+  }
+
   render() {
-    const {employmentType} = this.state
-    console.log(employmentType)
     return (
       <div>
         <UserProfile />
@@ -131,6 +136,13 @@ class JobsLeftSideSection extends Component {
         {this.employmentFilterFunction()}
         <hr />
         {this.salaryRangeFilterFunction()}
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={this.onClearAllFilters}
+        >
+          Clear
+        </button>
       </div>
     )
   }
