@@ -33,7 +33,7 @@ const Header = props => {
               <p className="m-0 h5">Jobs</p>
             </Link>
           </li>
-          <li>.</li>
+          {/* <li>.</li> */}
         </ul>
         <button
           type="button"

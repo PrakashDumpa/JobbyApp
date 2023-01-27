@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import {BsFillStarFill} from 'react-icons/bs'
 import {MdLocationOn} from 'react-icons/md'
 import {CgToolbox} from 'react-icons/cg'
-import {GrShare} from 'react-icons/gr'
+import {RiShareForward2Line} from 'react-icons/ri'
 import {v4 as uuidv4} from 'uuid'
 import './index.css'
 import Loader from 'react-loader-spinner'
@@ -44,7 +44,7 @@ class JobItemDetails extends Component {
     const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
-      console.log(data)
+      //   console.log(data)
       const updatedJobDetails = {
         companyLogoUrl: data.job_details.company_logo_url,
         companyWebsiteUrl: data.job_details.company_website_url,
@@ -111,7 +111,7 @@ class JobItemDetails extends Component {
   lifeAtCompanyFunction = () => {
     const {updatedJobDetails} = this.state
     const {lifeAtCompany} = updatedJobDetails
-    console.log('lifeAtCompany', lifeAtCompany)
+    // console.log('lifeAtCompany', lifeAtCompany)
 
     if (lifeAtCompany === undefined) {
       return null
@@ -167,7 +167,7 @@ class JobItemDetails extends Component {
                     </div>
                     <div className="d-flex">
                       <CgToolbox className="h3 mr-1" />
-                      <p className="m-0">{each.employmentType}</p>
+                      <p className="m-0 ">{each.employmentType}</p>
                     </div>
                   </div>
                   <p className="m-0 h5">{each.packagePerAnnum}</p>
@@ -181,8 +181,8 @@ class JobItemDetails extends Component {
   }
 
   successView = () => {
-    const {updatedJobDetails, updatedSimilarJobDetails} = this.state
-    console.log(updatedSimilarJobDetails)
+    const {updatedJobDetails} = this.state
+    // console.log(updatedSimilarJobDetails)
     const {
       companyLogoUrl,
       employmentType,
@@ -238,8 +238,8 @@ class JobItemDetails extends Component {
                   <h1 className="h4 mb-2">Description</h1>
                   <a href={companyWebsiteUrl} className="d-flex">
                     <div className="d-flex text-primary">
-                      <p className="h6">Visit</p>
-                      <GrShare className="share_icon" />
+                      <p className="h6 pr-2">Visit</p>
+                      <RiShareForward2Line className="h6" />
                     </div>
                   </a>
                 </div>
